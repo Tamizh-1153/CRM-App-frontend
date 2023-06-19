@@ -34,7 +34,7 @@ function Register() {
     } else {
       alert("Registered successfully")
     }
-    window.location.href='http://localhost:3000/login'
+    window.location.href = "https://crm-application-tm.netlify.app/login"
     console.log(data)
   }
 

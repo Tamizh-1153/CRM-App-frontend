@@ -29,7 +29,7 @@ function App() {
     }else{
       alert('Login failed')
     }
-    window.location.href = "http://localhost:3000/dashboard"
+    window.location.href = "https://crm-application-tm.netlify.app/dashboard"
   }
 
   return (
