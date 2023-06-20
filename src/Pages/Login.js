@@ -29,11 +29,13 @@ function App() {
     localStorage.setItem("token", data.token)
     if(data.user){
       alert('Login successful')
+      refresh("/dashboard")
     }else{
       alert('Login failed')
+      refresh('/login')
     }
-    refresh('/dashboard')
-    //window.location.href = "/dashboard"
+    
+    
   }
 
   return (
