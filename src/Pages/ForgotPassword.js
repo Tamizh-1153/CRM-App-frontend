@@ -22,7 +22,7 @@ const ForgotPassword = () => {
 
     const data = await response.json()
     console.log(data)
-      if (data.status=='ok') {
+      if (data.status==='ok') {
         alert("Sent password reset link")
       } else {
         alert("Email does not exists")
