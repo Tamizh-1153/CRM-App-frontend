@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Register() {
   const [fname, setFName] = useState("")
@@ -7,6 +7,8 @@ function Register() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("")
+
+  const refresh=useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -34,7 +36,8 @@ function Register() {
     } else {
       alert("Registered successfully")
     }
-    window.location.href = "https://crm-application-tm.netlify.app/login"
+    //window.location.href = "/login"
+    refresh('/login')
     console.log(data)
   }
 

@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function App() {
   
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const refresh = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -29,7 +31,8 @@ function App() {
     }else{
       alert('Login failed')
     }
-    window.location.href = "https://crm-application-tm.netlify.app/dashboard"
+    refresh('/dashboard')
+    //window.location.href = "/dashboard"
   }
 
   return (

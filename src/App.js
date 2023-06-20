@@ -11,9 +11,18 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" Component={Home} />
-          <Route path="/login" Component={Login} />
-          <Route path="/register" Component={Register} />
-          <Route path='/dashboard' Component={Dashboard} />
+          <Route
+            path="/login"
+            Component={Login}
+          />
+          <Route
+            path="/register"
+            Component={Register}
+          />
+          <Route
+            path="/dashboard"
+            Component={Dashboard}
+          />
         </Routes>
       </BrowserRouter>
     </>
