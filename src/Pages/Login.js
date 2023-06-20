@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function App() {
   
@@ -55,6 +56,9 @@ function App() {
           placeholder="Password"
         />
         <br />
+        <Link to='/forgotPassword'>
+        <input className="btn btn-primary my-3 " type="submit" value="Forgot Password" />
+        </Link>
         <input className="btn btn-primary my-3 " type="submit" value="Login" />
       </form>
     </div>

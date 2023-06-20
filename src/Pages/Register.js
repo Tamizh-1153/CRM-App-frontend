@@ -33,6 +33,7 @@ function Register() {
     console.log(data)
     if (data.err) {
       alert("Provide valid details for registration")
+      refresh('/register')
     } else {
       alert("Registered successfully")
     }
