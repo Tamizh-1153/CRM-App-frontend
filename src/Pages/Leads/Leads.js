@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react"
 import Sidebar from "../../components/sidebar/Sidebar"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../serviceRequest/serviceRequest.css"
+import Logout from "../../components/logout/Logout"
 
 const Leads = () => {
+    const refresh = useNavigate()
+    const isToken = localStorage.getItem("token")
   const [assign, setAssign] = useState({})
   const [name, setName] = useState("")
   const [assignEmp, setAssignEmp] = useState("")
@@ -58,9 +61,11 @@ const Leads = () => {
   }
 
   return (
+    isToken?
     <div className="dashboard_container">
       <Sidebar />
       <div className="service_request_content">
+        <Logout />
         <h1>Leads </h1>
         
         {srData.fUser === "junior employee" ? null : (
@@ -120,6 +125,7 @@ const Leads = () => {
         </table>
       </div>
     </div>
+    : refresh('/login')
   )
 }
 

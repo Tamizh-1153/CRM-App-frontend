@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react"
 import Sidebar from "../components/sidebar/Sidebar"
 import "./dashboard.css"
+import Logout from "../components/logout/Logout"
+import { useNavigate } from "react-router-dom"
 
 const Dashboard = () => {
+  const refresh=useNavigate()
+  const isToken=localStorage.getItem('token')
   const [data, setData] = useState({})
   /* eslint-disable */
   useEffect(() => {
@@ -31,9 +35,10 @@ const Dashboard = () => {
   //console.log(data.data.leads[0].leads)
 
   return (
-    <div className="dashboard_container">
+    isToken ?<div className="dashboard_container">
       <Sidebar />
       <div className="dashboard_content">
+        <Logout />
         <h2> Info about User </h2>
         <table>
           <tbody>
@@ -53,6 +58,8 @@ const Dashboard = () => {
         </table>
       </div>
     </div>
+    : refresh('/login')
+    
   )
 }
 

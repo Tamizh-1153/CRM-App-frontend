@@ -1,0 +1,13 @@
+.logout_container{
+    text-align: end;
+}
+
+.logout_btn{
+    background-color: rgba(17, 26, 47, 0.9);
+    color: whitesmoke;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    margin: 5px;
+    
+}
