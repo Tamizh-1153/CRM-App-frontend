@@ -8,7 +8,7 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await fetch(
-      "https://crm-backend-frz0.onrender.com/api/v1/auth/forgotPassword",
+      `${process.env.REACT_APP_BackendURL}/api/v1/auth/forgotPassword`,
       {
         method: "POST",
         headers: {

@@ -1,45 +1,58 @@
 import React, { useEffect, useState } from "react"
+import Sidebar from "../components/sidebar/Sidebar"
+import "./dashboard.css"
 
 const Dashboard = () => {
   const [data, setData] = useState({})
 
-  useEffect(() =>{
+  useEffect(() => {
     fetchData()
-  },[setData])
+  }, [setData])
 
   const fetchData = async () => {
     try {
-        const response = await fetch(
-          "https://crm-backend-frz0.onrender.com/api/v1/jobs/all",
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        )
-        const resData = await response.json()
-        
-        setData(resData)
-        
-        
+      const response = await fetch(
+        `${process.env.REACT_APP_BackendURL}/api/v1/jobs/all`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      const resData = await response.json()
+      setData(resData)
+      console.log(resData);
+      console.log(data);
+
+      
     } catch (error) {
-        console.log(error.message);
+      console.log(error.message)
     }
-    
   }
   //console.log(data.data.leads[0].leads)
 
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <ul>
-        Info about User
-        <li>Service Request count is : {data.srCount}</li>
-        <li>Leads count is : {data.ldCount}</li>
-        <li>Contacts count is : {data.ctsCount}</li>
-        
-        
-      </ul>
+    <div className="dashboard_container">
+      <Sidebar />
+      <div className="dashboard_content">
+        <h2> Info about User </h2>
+        <table>
+          <tbody>
+            <tr>
+              <td>Service Request Count</td>
+              <td>{data.srCount}</td>
+            </tr>
+            <tr>
+              <td>Leads Count</td>
+              <td>{data.ldCount}</td>
+            </tr>
+            <tr>
+              <td>Contacts Count</td>
+              <td>{data.ctsCount}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

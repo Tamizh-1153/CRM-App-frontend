@@ -1,0 +1,30 @@
+.crm_list_container {
+  display: flex;
+    height: 100%;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(153, 151, 151);
+   
+}
+
+.crm_list {
+  text-decoration: none;
+  list-style: none;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+.crm_list li {
+    font-size: var(--size-lg) ;
+    padding: 20px 0;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.crm_list li a{
+  text-decoration: none;
+  color: inherit;
+}

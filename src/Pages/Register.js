@@ -6,14 +6,14 @@ function Register() {
   const [lname, setLName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [role, setRole] = useState("")
+  const [role, setRole] = useState("admin")
 
   const refresh=useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await fetch(
-      "https://crm-backend-frz0.onrender.com/api/v1/auth/register",
+      `${process.env.REACT_APP_BackendURL}/api/v1/auth/register`,
       {
         method: "POST",
         headers: {
@@ -36,9 +36,10 @@ function Register() {
       refresh('/register')
     } else {
       alert("Registered successfully")
+      refresh("/login")
     }
     //window.location.href = "/login"
-    refresh('/login')
+    
     console.log(data)
   }
 
@@ -84,6 +85,7 @@ function Register() {
           id="role"
           name="role"
           value={role}
+          defaultValue='admin'
           onChange={(e) => setRole(e.target.value)}
         >
           <option value="admin">Admin</option>

@@ -1,0 +1,28 @@
+.dashboard_container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.dashboard_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dashboard_content h2 {
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.dashboard_content table {
+  width: 20%;
+  border-collapse: collapse;
+  margin: 4rem auto;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 20px;
+}
