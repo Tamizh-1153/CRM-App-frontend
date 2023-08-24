@@ -62,7 +62,8 @@ const Leads = () => {
       <Sidebar />
       <div className="service_request_content">
         <h1>Leads </h1>
-        {srData.fUser == "junior employee" ? null : (
+        
+        {srData.fUser === "junior employee" ? null : (
           <div className="add_sr">
             <form onSubmit={handleSRSubmit}>
               <input
@@ -97,7 +98,7 @@ const Leads = () => {
               <th>Leads</th>
               <th>Assigned</th>
               <th>Status</th>
-              {srData.fUser == "junior employee" ? null : <th>Actions</th>}
+              {srData.fUser === "junior employee" ? null : <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -106,7 +107,7 @@ const Leads = () => {
                 <td>{item.name}</td>
                 <td>{item.assignEmp}</td>
                 <td>{item.type}</td>
-                {srData.fUser == "junior employee" ? null : (
+                {srData.fUser === "junior employee" ? null : (
                   <td>
                     <Link to={`/leads/${item._id}`} state={{ assign, srData }}>
                       <button className="edit_btn">Edit</button>

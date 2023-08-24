@@ -62,7 +62,7 @@ const ServiceRequest = () => {
       <Sidebar />
       <div className="service_request_content">
         <h1>Service Requests </h1>
-        {srData.fUser == "junior employee" ? null : (
+        {srData.fUser === "junior employee" ? null : (
           <div className="add_sr">
             <form onSubmit={handleSRSubmit}>
               <input
@@ -97,7 +97,7 @@ const ServiceRequest = () => {
               <th>Service Request</th>
               <th>Assigned</th>
               <th>Status</th>
-              {srData.fUser == "junior employee" ? null : <th>Actions</th>}
+              {srData.fUser === "junior employee" ? null : <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
@@ -106,7 +106,7 @@ const ServiceRequest = () => {
                 <td>{item.name}</td>
                 <td>{item.assignEmp}</td>
                 <td>{item.type}</td>
-                {srData.fUser == "junior employee" ? null : (
+                {srData.fUser === "junior employee" ? null : (
                   <td>
                     <Link
                       to={`/service_requests/${item._id}`}

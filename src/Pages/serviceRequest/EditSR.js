@@ -9,9 +9,10 @@ const EditSR = () => {
   const location = useLocation()
   const { assign, srData } = location.state
   console.log(assign, srData)
-
+  /* eslint-disable */
   const editSR = srData.serviceRequests?.find((item) => item._id == id)
   console.log(editSR)
+  /* eslint-enable */
 
   let refresh = useNavigate()
 
@@ -21,7 +22,7 @@ const EditSR = () => {
     const assignEmp = e.target.elements.assignEmp.value
     const type = e.target.elements.type.value
     const srUpdate = { name, assignEmp, type }
-    console.log(srUpdate);
+    console.log(srUpdate)
 
     await axios.patch(
       `${process.env.REACT_APP_BackendURL}/api/v1/jobs/sr/${id}`,

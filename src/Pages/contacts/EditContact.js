@@ -5,33 +5,32 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 
 const EditContact = () => {
+  const { id } = useParams()
+  const location = useLocation()
+  const { assign, srData } = location.state
+  /* eslint-disable */
+  const editCts = srData.contacts?.find((item) => item._id == id)
+  /* eslint-enable */
+  let refresh = useNavigate()
 
-    const { id } = useParams()
-    const location = useLocation()
-    const { assign, srData } = location.state
+  const handleUpdate = async (e) => {
+    e.preventDefault()
+    const name = e.target.elements.name.value
+    const assignEmp = e.target.elements.assignEmp.value
+    const ctsUpdate = { name, assignEmp }
 
-    const editCts = srData.contacts?.find((item) => item._id == id)
-
-    let refresh = useNavigate()
-
-    const handleUpdate = async (e) => {
-      e.preventDefault()
-      const name = e.target.elements.name.value
-      const assignEmp = e.target.elements.assignEmp.value
-      const ctsUpdate = { name, assignEmp}
-
-      await axios.patch(
-        `${process.env.REACT_APP_BackendURL}/api/v1/jobs/cts/${id}`,
-        ctsUpdate,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      refresh("/contacts")
-    }
+    await axios.patch(
+      `${process.env.REACT_APP_BackendURL}/api/v1/jobs/cts/${id}`,
+      ctsUpdate,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    refresh("/contacts")
+  }
 
   return (
     <div className="dashboard_container">

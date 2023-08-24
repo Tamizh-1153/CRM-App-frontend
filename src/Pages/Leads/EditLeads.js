@@ -8,8 +8,9 @@ const EditLeads = () => {
   const { id } = useParams()
   const location = useLocation()
   const { assign, srData } = location.state
-
+  /* eslint-disable */
   const editLD = srData.leads?.find((item) => item._id == id)
+  /* eslint-enable */
 
   let refresh = useNavigate()
 

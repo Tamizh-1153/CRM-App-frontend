@@ -4,10 +4,11 @@ import "./dashboard.css"
 
 const Dashboard = () => {
   const [data, setData] = useState({})
-
+  /* eslint-disable */
   useEffect(() => {
     fetchData()
   }, [setData])
+  /* eslint-enable */
 
   const fetchData = async () => {
     try {
@@ -21,10 +22,8 @@ const Dashboard = () => {
       )
       const resData = await response.json()
       setData(resData)
-      console.log(resData);
-      console.log(data);
-
-      
+      console.log(resData)
+      console.log(data)
     } catch (error) {
       console.log(error.message)
     }
